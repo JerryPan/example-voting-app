@@ -15,4 +15,4 @@ FROM openjdk:8-jre-alpine
 COPY --from=build /code/target/worker-jar-with-dependencies.jar /
 
 # see https://stackoverflow.com/questions/71145589/cgroup-v2-and-java-8
-CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:MaxRAM=$(cat /sys/fs/cgroup/memory.max)", "-jar", "/worker-jar-with-dependencies.jar"]
+CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:MaxRAM=1G", "-jar", "/worker-jar-with-dependencies.jar"]
